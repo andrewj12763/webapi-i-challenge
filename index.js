@@ -1,9 +1,11 @@
 // implement your API here
 // global variables
+require('dotenv').config();
 const express = require("express");
 const db = require("./data/db");
 const server = express();
 const users = db;
+const port = process.env.PORT || 4000;
 
 // Middleware
 server.use(express.json());
@@ -88,6 +90,6 @@ server.put("/api/users/:id", (req, res) => {
     });
 });
 // start server listening on port 3000
-server.listen(3000, () =>
+server.listen(port, () =>
   console.log("Server running on http://localhost:3000")
 );
